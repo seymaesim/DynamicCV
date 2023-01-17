@@ -1,0 +1,27 @@
+﻿@using EntityLayer.Concrete;
+@model List<Feature>
+
+
+
+@foreach (var item in Model)
+{
+    <section id="home" class="templatemo-home">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 col-sm-1"></div>
+                <div class="col-md-8 col-sm-10">
+
+                    <h4 class="tm-home-title"><strong>@item.Header</strong></h4>
+                    <h2 class="tm-home-subtitle">@item.Name</h2>
+                    <p>Uzman olarak <strong>@item.Tiitle</strong>
+                        kariyer pozisyonlarında yer aldım. <br> Hadi birlikte neler yaptıklarıma bir bakalım. 
+                        <br> Teşekkürler.</p>
+                    <a href="#work" class="btn btn-default smoothScroll tm-view-more-btn">Başlayalım !</a>
+                </div>
+                <div class="col-md-2 col-sm-1"></div>
+            </div>
+        </div>
+    </section>
+
+
+}
