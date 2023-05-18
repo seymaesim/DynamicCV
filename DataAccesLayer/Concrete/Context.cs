@@ -12,7 +12,7 @@ namespace DataAccesLayer.Concrete
     {
        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=?;database = ?;integrated security = true;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-HPF12JV\\SA; Database=dbMyCV_Proje; User Id=sa; Password=sa@2023; TrustServerCertificate=True");
         }
         public DbSet<About> Abouts { get; set; } //Abouts tablo ismi
         public DbSet<Contact> Contacts { get; set; } //Contacts tablo ismi
