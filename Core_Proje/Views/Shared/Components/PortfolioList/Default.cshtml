@@ -1,0 +1,259 @@
+﻿@using EntityLayer.Concrete;
+@using Microsoft.EntityFrameworkCore;
+@model List<Portfolio>
+
+
+<section id="portfolio" class="tm-portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 wow bounce">
+                <div class="title">
+                    <h2 class="tm-portfolio-title">My <strong>Portfolio</strong></h2>
+                </div>
+
+                <!-- START ISO SECTION -->
+                <div class="iso-section">
+                    <ul class="filter-wrapper clearfix">
+                        <li><a href="#" class="opc-main-bg selected" data-filter="*">All</a></li>
+                        <li><a href="#" class="opc-main-bg" data-filter=".html">HTML</a></li>
+                        <li><a href="#" class="opc-main-bg" data-filter=".web">Web</a></li>
+                        <li><a href="#" class="opc-main-bg" data-filter=".windows">Windows Application</a></li>
+                        <li><a href="#" class="opc-main-bg" data-filter=".service">Service</a></li>
+                        <li><a href="#" class="opc-main-bg" data-filter=".mobile">Mobile</a></li>
+                    </ul>
+                    <div class="iso-box-section">
+                        <div class="iso-box-wrapper col4-iso-box">
+                            @foreach (var item in Model)
+                            {
+                                if (item.Name == "Digital Human Resources")
+                                {
+                                    <div class="iso-box service col-md-6 col-sm-6 col-xs-12">
+                                        <div class="portfolio-thumb">
+                                            <img src="@item.ImageUrl" class="fluid-img" alt="portfolio img">
+                                            <div class="portfolio-overlay">
+                                                <h3 class="portfolio-item-title">@item.Name</h3>
+                                                <p style="font-size:12px;word-wrap:break-word;">@item.DetailInformation</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else if (item.Contents == "Web,HTML")
+                                {
+                                    <div class="iso-box html web col-md-4 col-sm-4 col-xs-12">
+                                        <div class="portfolio-thumb">
+                                            <img src="@item.ImageUrl" class="fluid-img" alt="portfolio img" style="height:400px">
+                                            <div class="portfolio-overlay">
+                                                <h3 class="portfolio-item-title">@item.Name</h3>
+                                                <br>
+                                                <p style="font-size:12px;word-wrap:break-word;">@item.DetailInformation</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else if (item.Name == "CRM Project")
+                                {
+                                    <div class="iso-box service col-md-6 col-sm-4 col-xs-12">
+                                        <div class="portfolio-thumb">
+                                            <img src="@item.ImageUrl" class="fluid-img" alt="portfolio img">
+                                            <div class="portfolio-overlay">
+                                                <h3 class="portfolio-item-title">@item.Name</h3>
+                                                <p style="font-size:12px;word-wrap:break-word;">@item.DetailInformation</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else if (item.Name == "Dijital Ar-Ge")
+                                {
+                                    <div class="iso-box service col-md-6 col-sm-4 col-xs-12">
+                                        <div class="portfolio-thumb">
+                                            <img src="@item.ImageUrl" class="fluid-img" alt="portfolio img">
+                                            <div class="portfolio-overlay">
+                                                <h3 class="portfolio-item-title">@item.Name</h3>
+                                                <p style="font-size:12px;word-wrap:break-word;">@item.DetailInformation</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                                else if (item.Name == "Human Resources Mail Service")
+                                {
+                                    <div class="iso-box service col-md-6 col-sm-6 col-xs-12">
+                                        <div class="portfolio-thumb">
+                                            <img src="@item.ImageUrl" class="fluid-img" alt="portfolio img">
+                                            <div class="portfolio-overlay">
+                                                <h3 class="portfolio-item-title">@item.Name</h3>
+                                                <p style="font-size:12px;word-wrap:break-word;">@item.DetailInformation</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else if (item.Contents == "Web,HTML,Mobile")
+                                {
+                                    <div class="iso-box html web mobile col-md-4 col-sm-4 col-xs-12">
+                                        <div class="portfolio-thumb">
+                                            <img src="@item.ImageUrl" class="fluid-img" alt="portfolio img">
+                                            <div class="portfolio-overlay">
+                                                <h3 class="portfolio-item-title">@item.Name</h3>
+                                                <p style="font-size:12px;word-wrap:break-word;">@item.DetailInformation</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else if (item.Contents == "Web,HTML,Windows,Mobile")
+                                {
+                                    <div class="iso-box html web windows mobile col-md-6 col-sm-6 col-xs-12">
+                                        <div class="portfolio-thumb">
+                                            <img src="@item.ImageUrl" class="fluid-img" alt="portfolio img">
+                                            <div class="portfolio-overlay">
+                                                <h3 class="portfolio-item-title">@item.Name</h3>
+                                                <p style="font-size:12px;word-wrap:break-word;">@item.DetailInformation</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                else if (item.Contents == "Service")
+                                {
+                                    <div class="iso-box service col-md-4 col-sm-4 col-xs-12">
+                                        <div class="portfolio-thumb">
+                                            <img src="@item.ImageUrl" class="fluid-img" alt="portfolio img" style="height:400px">
+                                            <div class="portfolio-overlay">
+                                                <h3 class="portfolio-item-title">@item.Name</h3>
+                                                <p style="font-size:12px;word-wrap:break-word;">@item.DetailInformation</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                                else
+                                {
+                                    <div class="iso-box html web windows service mobile col-md-6 col-sm-6 col-xs-12">
+                                        <div class="portfolio-thumb">
+                                            <img src="@item.ImageUrl" class="fluid-img" alt="portfolio img">
+                                            <div class="portfolio-overlay">
+                                                <h3 class="portfolio-item-title">@item.Name</h3>
+                                                <p style="font-size:12px;word-wrap:break-word;">@item.DetailInformation</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+@*<section id="portfolio" class="tm-portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 wow bounce">
+                <div class="title">
+                    <h2 class="tm-portfolio-title">My <strong>Portfolio</strong></h2>
+                </div>
+
+                <!-- START ISO SECTION -->
+                <div class="iso-section">
+                    <ul class="filter-wrapper clearfix">
+                        <li><a href="#" class="opc-main-bg selected" data-filter="*">All</a></li>
+                        <li><a href="#" class="opc-main-bg" data-filter=".html">Web Development</a></li>
+                        <li><a href="#" class="opc-main-bg" data-filter=".photoshop">Windows Application Development</a></li>
+                        <li><a href="#" class="opc-main-bg" data-filter=".wordpress">API Service</a></li>
+                        <li><a href="#" class="opc-main-bg" data-filter=".mobile">Mobile</a></li>
+                    </ul>
+                    <div class="iso-box-section">
+                        <div class="iso-box-wrapper col4-iso-box">
+                            <div class="iso-box html photoshop wordpress mobile col-md-3 col-sm-3 col-xs-12">
+                                <div class="portfolio-thumb">
+                                    <img src="~/ultra_profile/images/portfolio-img1.jpg" class="fluid-img" alt="portfolio img">
+                                    <div class="portfolio-overlay">
+                                        <h3 class="portfolio-item-title">UX Design</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonumm.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="iso-box html wordpress mobile col-md-3 col-sm-3 col-xs-12">
+                                <div class="portfolio-thumb">
+                                    <img src="~/ultra_profile/images/portfolio-img2.jpg" class="fluid-img" alt="portfolio img">
+                                    <div class="portfolio-overlay">
+                                        <h3 class="portfolio-item-title">UX Design</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonumm.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="iso-box wordpress col-md-3 col-sm-3 col-xs-12">
+                                <div class="portfolio-thumb">
+                                    <img src="~/ultra_profile/images/portfolio-img3.jpg" class="fluid-img" alt="portfolio img">
+                                    <div class="portfolio-overlay">
+                                        <h3 class="portfolio-item-title">UX Design</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonumm.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="iso-box html mobile col-md-3 col-sm-3 col-xs-12">
+                                <div class="portfolio-thumb">
+                                    <img src="~/ultra_profile/images/portfolio-img4.jpg" class="fluid-img" alt="portfolio img">
+                                    <div class="portfolio-overlay">
+                                        <h3 class="portfolio-item-title">UX Design</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonumm.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="iso-box wordpress col-md-3 col-sm-3 col-xs-12">
+                                <div class="portfolio-thumb">
+                                    <img src="~/ultra_profile/images/portfolio-img5.jpg" class="fluid-img" alt="portfolio img">
+                                    <div class="portfolio-overlay">
+                                        <h3 class="portfolio-item-title">UX Design</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonumm.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="iso-box html photoshop col-md-3 col-sm-3 col-xs-12">
+                                <div class="portfolio-thumb">
+                                    <img src="~/ultra_profile/images/portfolio-img6.jpg" class="fluid-img" alt="portfolio img">
+                                    <div class="portfolio-overlay">
+                                        <h3 class="portfolio-item-title">UX Design</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonumm.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="iso-box photoshop col-md-3 col-sm-3 col-xs-12">
+                                <div class="portfolio-thumb">
+                                    <img src="~/ultra_profile/images/portfolio-img7.jpg" class="fluid-img" alt="portfolio img">
+                                    <div class="portfolio-overlay">
+                                        <h3 class="portfolio-item-title">UX Design</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonumm.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="iso-box wordpress col-md-3 col-sm-3 col-xs-12">
+                                <div class="portfolio-thumb">
+                                    <img src="~/ultra_profile/images/portfolio-img8.jpg" class="fluid-img" alt="portfolio img">
+                                    <div class="portfolio-overlay">
+                                        <h3 class="portfolio-item-title">UX Design</h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonumm.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@

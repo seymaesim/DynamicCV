@@ -1,0 +1,64 @@
+﻿@using EntityLayer.Concrete;
+@model List<Service>
+
+
+<section id="work" class="tm-padding-top-bottom-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-11">
+                <h2 class="title">My <strong>Work</strong></h2>
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 col-sm-4">
+                    <div class="work-wrapper">
+                        <i class="@item.ImageUrl"></i>
+                        <h3 class="text-uppercase tm-work-h3">@item.Title</h3>
+                        <hr>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna.</p>
+                    </div>
+                </div>
+            }
+         
+        
+        </div>
+    </div>
+</section>
+
+ 
+
+
+@*<section id="work" class="tm-padding-top-bottom-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-11">
+                <h2 class="title">My <strong>Work</strong></h2>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="work-wrapper">
+                    <i class="fa fa-link"></i>
+                    <h3 class="text-uppercase tm-work-h3">Mobile UX</h3>
+                    <hr>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="work-wrapper">
+                    <i class="fa fa-flash"></i>
+                    <h3 class="text-uppercase tm-work-h3">Web Design</h3>
+                    <hr>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="work-wrapper">
+                    <i class="fa fa-dashboard"></i>
+                    <h3 class="text-uppercase tm-work-h3">HTML Templates</h3>
+                    <hr>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+

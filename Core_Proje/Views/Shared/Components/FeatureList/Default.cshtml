@@ -1,6 +1,20 @@
 ﻿@using EntityLayer.Concrete;
 @model List<Feature>
 
+
+
+
+<head>
+ 
+ 
+    <link rel="stylesheet" href="~/UI/css/snow.css">
+
+
+  
+
+</head>
+
+
 <style>
     .btn {
         background-color: lightpink;
@@ -21,10 +35,8 @@
         }
 
     .gradient-text {
-        
         background-color: #CA4246;
-        background-image: linear-gradient( 45deg, #CA4246 16.666%, #E16541 16.666%, #B2A4FF 33.333%, #F18F43 33.333%, #FFDEB4 50%, #D14D72 50%, #D14D72 66.666%, #B2A4FF 66.666%, #476098 83.333%, #A7489B 83.333%);
-       
+        background-image: linear-gradient( 45deg, #CA4246 16.666%, #CA4246 16.666%, #B2A4FF 33.333%, #F18F43 33.333%, #B2A4FF 50%, #B2A4FF 50%, #D14D72 66.666%, #B2A4FF 66.666%, #476098 83.333%, #A7489B 83.333%);
         background-size: 100%;
         background-repeat: repeat;
         -webkit-background-clip: text;
@@ -34,30 +46,41 @@
 
     .gradient-text-2 {
         background-color: #CA4246;
-        background-image: linear-gradient( 45deg, #D14D72 16.666%, #FFDEB4 16.666%, #FFABAB 33.333%, #FCC8D1 33.333%, #FCC8D1 50%, #FEF2F4 50%, #FEF2F4 66.666%, #FCC8D1 66.666%, #FFDEB4 83.333%, #D14D72 83.333%);
+        background-image: linear-gradient( 45deg, #D14D72 16.666%, #D14D72 16.666%, #FFABAB 33.333%, #FCC8D1 33.333%, #FCC8D1 50%, #FEF2F4 50%, #FEF2F4 66.666%, #FCC8D1 66.666%, #D14D72 83.333%, #D14D72 83.333%);
         background-size: 100%;
         background-repeat: repeat;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-      
+
+
 </style>
 
 @foreach (var item in Model)
 {
-    <section id="home" class="templatemo-home" style="background-color: #1d1d21 !important">
-        <div class="container">
-            <div class="row">
+
+    <section id="home" class="templatemo-home" style=" background-image: linear-gradient(rgba(170,170,170,0.5), rgba(0, 0, 0, 0.50)), url('/ultra_profile/images/webservice.jpg') !important">
+        <div class="container" >
+            <div class="snow-container">
+                <div class="snow foreground"></div>
+                <div class="snow foreground layered"></div>
+                <div class="snow middleground"></div>
+                <div class="snow middleground layered"></div>
+                <div class="snow background"></div>
+                <div class="snow background layered"></div>
+            </div>
+            <div class="row" >
                 <div class="col-md-2 col-sm-1"></div>
                 <div class="col-md-8 col-sm-10">
+                  
+                    <h1 class="gradient-text" style="font-size:55px"><strong>@item.Header</strong></h1>
+                    <h2 class="gradient-text" style="font-size:30px"> <strong>My name is @item.Name</strong></h2>
 
-                    <h1 class="gradient-text"><strong>@item.Header</strong></h1>
-                    <h2 class="gradient-text"> <strong>My Name is @item.Name</strong></h2>
 
-
-                    <p class="gradient-text-2">
-                        I graduated from Osmaniye Korkutata University YBS in 2018. <strong>@item.Tiitle</strong>
+                    <p class="gradient-text-2" style="font-size:20px">
+                        <strong> I graduated from Osmaniye Korkutata University YBS in 2018. @item.Tiitle
                         I continue to improve myself by researching and applying new technologies in this sector.
+                        </strong>
                     </p>
 
                     <a href="#work" class="btn">Review Resume</a>
@@ -66,7 +89,14 @@
                 <div class="col-md-2 col-sm-1"></div>
             </div>
         </div>
+
+     
+
+
+
     </section>
 
 
 }
+
+

@@ -1,0 +1,58 @@
+﻿@using EntityLayer.Concrete;
+@model List<Experience>
+
+    @functions{
+    public string[] _Split;
+    }
+    <style>
+    .gradient-text-3 {
+        background-color: #CA4246;
+        background-image: linear-gradient( 45deg, #FFFFFF 16.666%, #0B0B0B 16.666%, #AAAAAA 33.333%, #717171 33.333%, #4B4B4B 50%, #323232 50%, #323232 66.666%, #717171 66.666%, #212121 83.333%, #0B0B0B 83.333%);
+        background-size: 100%;
+        background-repeat: repeat;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+ 
+    </style>
+
+
+<section id="about">
+    <div class="container">
+        <div class="row">
+            <center><h1 class="tm-red-text">My <strong>Eperiences</strong></h1> </center>
+            <div class="col-md-12 col-sm-12" style="background-color:coral !important">
+            </div>
+        </div>
+        <br />
+@foreach (var item in Model)
+{
+
+          
+            <div class="row">
+                <div class="col-md-2 col-sm-5" style="background-color:coral !important"></div>
+                <div class="col-md-offset-2 col-md-10 col-sm-offset-6 col-sm-7">
+                    <div class="title">
+                        <h2 >@item.Name <strong>@Convert.ToDateTime(@item.BeginningDate).Year - @Convert.ToDateTime(@item.EndDate).Year </strong></h2>
+                        <h1 class="tm-red-text">@item.Mission.Substring(0,8) <strong>@item.Mission.Substring(8,10)</strong></h1>
+                    </div>
+                    @{
+                        _Split = item.Description.Split('|');
+                    }
+                    <p >@_Split[0]</p>
+                    <p >@_Split[1]</p>
+                </div>
+            </div>
+ 
+}
+    </div>
+</section>
+
+
+
+
+
+
+
+

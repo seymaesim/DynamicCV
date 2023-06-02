@@ -1,0 +1,76 @@
+﻿@using EntityLayer.Concrete;
+@using Microsoft.EntityFrameworkCore;
+@model List<SocialMedia>
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+
+
+
+<section id="social" class="tm-social">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model.Where(x => x.Status == true))
+            {
+                if (item.Name.Contains("LinkIden"))
+                {
+                    <div class="col-md-4 col-sm-4 wow rotateInUpLeft" data-wow-delay="0.3s">
+                        <div class="media facebook">
+                            <a href="@item.Url">
+                                <div class="media-object pull-left">
+                                    <i class="@item.Icon"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading tm-social-title">Follow me on</h4>
+                                    <h3>Social @item.Name</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+                else if (item.Name.Contains("Github"))
+                {
+                    <div class="col-md-4 col-sm-4 wow rotateInUpLeft" data-wow-delay="0.6s">
+                        <div class="media twitter">
+                
+                            <a href="@item.Url">
+                                <div class="media-object pull-left">
+                                    <i class="@item.Icon"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading tm-social-title">Github me on</h4>
+                                    <h3>Social @item.Name</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-md-4 col-sm-4 wow rotateInUpLeft" data-wow-delay="0.9s">
+                        <div class="media pinterest">
+                            <a href="@item.Url">
+                                <div class="media-object pull-left">
+                                    <i class="@item.Icon"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading tm-social-title">Pin me on</h4>
+                                    <h3>Social @item.Name</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            }
+
+
+
+        </div>
+    </div>
+</section>
