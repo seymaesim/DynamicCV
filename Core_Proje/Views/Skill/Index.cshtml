@@ -1,0 +1,90 @@
+﻿@using EntityLayer.Concrete;
+@model List<Skill>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+
+                <a href="/Skill/AddSkill/" class="btn btn-success" aria-haspopup="true" aria-expanded="false" style="float:right">
+                    Yeni Kayıt &nbsp <i class="fa fa-refresh"></i>
+                </a>
+
+
+
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center justify-content-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tittle</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Value</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Sil</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Güncelle</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex px-2">
+                                            <div class="my-auto">
+                                                <h6 class="mb-0 text-sm">@item.SkillID</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex px-2 align-items-center " style="margin-left:-50px">
+                                            <div>
+                                                <img src="@item.Icon" class="avatar avatar-sm rounded-circle me-2" alt="invision">
+                                            </div>
+                                            <div class="my-auto">
+                                                <h6 class="mb-0 text-sm">@item.Title</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex align-items-center justify-content-center" style="margin-left:-70px">
+                                            <span class="me-0 text-xs font-weight-bold">@item.Value %</span>
+                                            <div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="@item.Value" style="width: @item.Value%;"></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center">
+
+                                        <a class="btn btn-danger " aria-haspopup="true" aria-expanded="false">
+                                            Sil &nbsp <i class="fa fa-remove"></i>
+                                        </a>
+                                    </td>
+                                    <td class="align-middle text-center">
+
+                                        <a class="btn btn-primary " aria-haspopup="true" aria-expanded="false">
+                                            Güncelle &nbsp <i class="fa fa-refresh"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "AddSkill";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="form-group" enctype="multipart/form-data" action="/Skill/AddSkill" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            @Html.Label("Yetenek Adı")
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Örn; .Net" name="Title">
+            </div>
+        </div>
+        <div class="col-md-6">
+            @Html.Label("Yetenek Oranınız")
+            <div class="form-group">
+                <input type="number" placeholder="Örn; 70" class="form-control" name="Value" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="formFile" class="form-label">Icon Yükle</label>
+                <input class="form-control" type="file" id="formFile" name="Icon">
+                @*<input type="file" name="Icon" />*@
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary">Kaydet</button>
+</form>
+
