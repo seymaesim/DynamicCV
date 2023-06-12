@@ -1,6 +1,5 @@
 # Personal Resume Project
-
-<font face="Verdana" size="2" color="blue"> <u> Sıfırdan Admin - Yazar ve Vitrin Paneli Bulunan Dinamik Bir Web Projesini Core Ortamında Geliştirme </u></font>
+<u> Sıfırdan Admin - Yazar ve Vitrin Paneli Bulunan Dinamik Bir Web Projesini Core Ortamında Geliştirme </u>
 
 <b><a href="http://www.seymayilmazer.com">seymayilmazer.com</a></b>
 
