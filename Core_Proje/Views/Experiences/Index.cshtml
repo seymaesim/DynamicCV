@@ -1,0 +1,82 @@
+﻿@using EntityLayer.Concrete;
+@model List<Experience>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+
+                <a href="#" class="btn btn-success" aria-haspopup="true" aria-expanded="false" style="float:right">
+                    Yeni Kayıt &nbsp <i class="fa fa-refresh"></i>
+                </a>
+
+
+
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center justify-content-center mb-0">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Şirket Adı & Pozisyonu </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Görevleri</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Sil</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Güncelle</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex px-2">
+                                            <div class="my-auto">
+                                                <h6 class="mb-0 text-sm">@item.ExperienceID</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex px-2 align-items-center " style="margin-left:-50px">
+                                            <div>
+                                                <h6 class="mb-0 text-sm">@item.Name</h6> - <span class="me-0 text-xs font-weight-bold">@item.Mission %</span>
+                                            </div>
+                                            <div class="my-auto">
+                                                <h6 class="mb-0 text-sm">@item.BeginningDate.ToString("dd-MM-yyyy") - @item.EndDate.ToString("dd-MM-yyyy")g</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex align-items-center justify-content-center" style="margin-left:-70px">
+                                            <h6 class="mb-0 text-sm">@item.Description</h6>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center">
+
+                                        <a href="#" class="btn btn-danger " aria-haspopup="true" aria-expanded="false">
+                                            Sil &nbsp <i class="fa fa-remove"></i>
+                                        </a>
+                                    </td>
+                                    <td class="align-middle text-center">
+
+                                        <a href="#" class="btn btn-primary " aria-haspopup="true" aria-expanded="false">
+                                            Güncelle &nbsp <i class="fa fa-refresh"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
