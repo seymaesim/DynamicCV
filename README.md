@@ -1,4 +1,6 @@
-# Personal Resume Project
+# 👋
+# Personal Resume Project 
+
 <strong> Sıfırdan Admin - Yazar ve Vitrin Paneli Bulunan Dinamik Bir Web Projesini Core Ortamında Geliştirme </strong>
 
 <b><a href="http://www.seymayilmazer.com">seymayilmazer.com</a></b>
@@ -7,11 +9,11 @@ On the site where the Argon and Boostrap ready theme is used, changes have been 
 This repo is opened for those who want to sample the design of my website.
 Developments continue.
 
-<b>The project was created with .Net Core. Supported by .Net 6.</b> 
+## 📝 <b>The project was created with .Net Core. Supported by .Net 6.</b> 
 
 The project consists of two interfaces, the user interface of the person's about, portfolio, experiences, abilities, communication and social media information, the blog and the admin panel to which the blog part is connected.
 
-<h3/>In project scope; </h3>
+## 📝 <h3/>In project scope; </h3>
 
 <ul>
   <li> N Tier Architecture </li>
@@ -39,6 +41,6 @@ The project consists of two interfaces, the user interface of the person's about
   
 </ul>
 
-<h3/>Project images ;</h3>
+## 👋 <h3/>Project images ;</h3>
 
 ![Web Site View](https://github.com/seymaesim/DynamicCV/blob/master/Core_Proje/wwwroot/ultra_profile/images/portfolio-img4.jpg)
