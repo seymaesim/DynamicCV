@@ -1,17 +1,17 @@
 ﻿@using EntityLayer.Concrete;
-@model List<Experience>
-
+@model List<Portfolio>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
 
 <div class="row">
     <div class="col-12">
         <div class="card mb-4">
             <div class="card-header pb-0">
 
-                <a href="/Experiences/AddExperience/" class="btn btn-success" aria-haspopup="true" aria-expanded="false" style="float:right">
+                <a href="/Portfolio/AddPortfolio/" class="btn btn-success" aria-haspopup="true" aria-expanded="false" style="float:right">
                     Yeni Kayıt &nbsp <i class="fa fa-refresh"></i>
                 </a>
 
@@ -20,14 +20,13 @@
             </div>
             <div class="card-body px-0 pt-0 pb-2">
                 <div class="table-responsive p-0">
-                    <table class="table align-items-center justify-content-center mb-0" style="width: 100%;">
+                    <table class="table align-items-center justify-content-center mb-0">
                         <thead>
                             <tr>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id</th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Şirket Adı & Pozisyonu </th>
-                                @*<th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Şirket Adı & Pozisyonu </th>*@
-                            
-                            
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Proje Adı</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">Proje Tag</th>
+
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Sil</th>
                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Güncelle</th>
 
@@ -38,35 +37,41 @@
                             {
                                 <tr>
                                     <td class="align-middle text-center">
-                                        <div class="d-flex px-3">
+                                        <div class="d-flex px-4">
                                             <div class="my-auto">
-                                                <h6 class="mb-0 text-sm">@item.ExperienceID</h6>
+                                                <h6 class="mb-0 text-sm">@item.PortfolioID</h6>
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="align-middle text-left">
-                                        <div class="d-flex px-5 align-items-center " style="margin-left:-50px">
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex px-4" style="margin-left:-50px">
                                             <div>
-                                                <h6 class="mb-0 text-sm">@item.Name</h6> - <span class="me-0 text-xs font-weight-bold">@item.Mission / @item.BeginningDate.ToString("dd-MM-yyyy") - @item.EndDate.ToString("dd-MM-yyyy")</span>
+                                                <img src="@item.ImageUrl" class="avatar avatar-sm rounded-circle me-2" alt="invision">
+                                            </div>
+
+                                            <div>
+                                                <h4 class="mb-0 text-sm text-center">@item.Name</h4>
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex px-0">
+                                            <div class="my-auto">
+                                                <span class="my-auto px-2 mb-0 me-0 text-xs font-weight-bold text-center">@item.Contents</span>
+
                                             </div>
                                         </div>
                                     </td>
-                             @*       <td class="align-middle text-left" >
-                                        <div class="d-flex px-3" style="word-wrap: break-word;">
-                                            <div class="my-auto">
-                                                <h6 class="mb-0 text-sm">@item.Description</h6>
-                                            </div>
-                                        </div>
-                                    </td>*@
                                     <td class="align-middle text-center">
 
-                                        <a href="/Experiences/DeleteExperience/@item.ExperienceID" class="btn btn-danger " aria-haspopup="true" aria-expanded="false">
+                                        <a href="/Portfolio/DeletePortfolio/@item.PortfolioID" class="btn btn-danger " aria-haspopup="true" aria-expanded="false">
                                             Sil &nbsp <i class="fa fa-remove"></i>
                                         </a>
                                     </td>
                                     <td class="align-middle text-center">
 
-                                        <a href="/Experiences/EditExperience/@item.ExperienceID" class="btn btn-primary " aria-haspopup="true" aria-expanded="false">
+                                        <a href="/Portfolio/EditPortfolio/@item.PortfolioID" class="btn btn-primary " aria-haspopup="true" aria-expanded="false">
                                             Güncelle &nbsp <i class="fa fa-refresh"></i>
                                         </a>
                                     </td>

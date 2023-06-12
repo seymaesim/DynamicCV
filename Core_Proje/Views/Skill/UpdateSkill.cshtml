@@ -1,8 +1,42 @@
-﻿
+﻿@model EntityLayer.Concrete.Skill
 @{
     ViewData["Title"] = "UpdateSkill";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>UpdateSkill</h1>
 
+
+<form class="form-group" enctype="multipart/form-data" action="/Skill/UpdateSkill" method="post">
+    <input type="number" class="form-control" name="SkillID" value="@Model.SkillID" hidden />
+    <div class="row">
+        <div class="col-md-6">
+            @Html.Label("Yetenek Adı")
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Örn; .Net" name="Title" value="@Model.Title">
+            </div>
+        </div>
+        <div class="col-md-6">
+            @Html.Label("Yetenek Oranınız")
+            <div class="form-group">
+                <input type="number" placeholder="Örn; 70" class="form-control" name="Value"  value="@Model.Value"/>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="form-group">
+                <img src="@Model.Icon" class="avatar avatar-xxl rounded-circle me-2" alt="invision">
+                <input type="text" placeholder="Örn; 70" class="form-control" name="Icon" value="@Model.Icon" hidden/>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="form-group">
+                <label for="formFile" class="form-label">Icon Yükle</label>
+                <input class="form-control" type="file" id="formFile" name="Icon">
+
+            </div>
+        </div>
+    </div>
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>

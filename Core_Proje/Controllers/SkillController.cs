@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting.Internal;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Drawing;
 using System.IO;
@@ -88,9 +89,37 @@ namespace Core_Proje.Controllers
             var values = skillManager.T_GetByID(ID);
             return View(values);
         }
-        [HttpPut]
-        public IActionResult UpdateSkill(Skill skill)
+        [HttpPost]
+        public async Task<IActionResult> UpdateSkill(Skill skill, IFormFile Icon)
         {
+            var fileName = skill.Icon.Split("/ultra_profile/icons/")[1];
+            var filePath = Path.Combine(_iweb.WebRootPath, "ultra_profile/icons", fileName.ToString());
+            FileInfo fi = new FileInfo(filePath);
+            if (fi != null)
+            {
+                System.IO.File.Delete(filePath);
+                fi.Delete();
+            }
+            if (Icon != null && Icon.Length > 0)
+            {
+                if (Icon.FileName == fileName)
+                {
+                    if (fi != null)
+                    {
+                        System.IO.File.Delete(filePath);
+                        fi.Delete();
+                    }
+
+                }
+                var fileName2 = Guid.NewGuid().ToString() + Path.GetExtension(Icon.FileName);
+                var filePath2 = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ultra_profile/icons", fileName2);
+
+                using (var stream = new FileStream(filePath2, FileMode.Create))
+                {
+                    await Icon.CopyToAsync(stream);
+                    skill.Icon = "/ultra_profile/icons/" + fileName2.ToString();
+                }
+            }
             skillManager.T_Update(skill);
             return RedirectToAction("Index");
         }

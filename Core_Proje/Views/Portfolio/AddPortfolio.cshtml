@@ -1,0 +1,43 @@
+﻿@model EntityLayer.Concrete.Portfolio
+
+@{
+    ViewData["Title"] = "AddPortfolio";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="form-group" enctype="multipart/form-data" action="/Portfolio/AddPortfolio" method="post">
+    <div class="row">
+        <div class="col-md-6">
+            @Html.Label("Proje Adı")
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Örn; .Net" name="Name">
+            </div>
+        </div>
+        <div class="col-md-6">
+            @Html.Label("Proje Tag")
+            <div class="form-group">
+                <input type="text" placeholder="Örn; HTML,Web,Mobile" class="form-control" name="Contents" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                @Html.Label("Proje Hakkında Detay Bilgi")
+                @Html.TextAreaFor(x => x.DetailInformation,10,3 ,new {@class="form-control"})
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="formFile" class="form-label">Image Yükle</label>
+                <input class="form-control" type="file" id="formFile" name="ImageUrl">
+
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary">Kaydet</button>
+</form>
+
