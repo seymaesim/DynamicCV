@@ -43,4 +43,12 @@ The project consists of two interfaces, the user interface of the person's about
 
 ## 👋 <h3/>Project images ;</h3>
 
-![Web Site View](https://github.com/seymaesim/DynamicCV/blob/master/Core_Proje/wwwroot/ultra_profile/images/portfolio-img4.jpg)
+![Web Site View](https://github.com/seymaesim/DynamicCV/blob/master/Core_Proje/wwwroot/projectImages/Blog.PNG)
+![Web Site View](https://github.com/seymaesim/DynamicCV/blob/master/Core_Proje/wwwroot/projectImages/AdminPanel3.png)
+![Web Site View](https://github.com/seymaesim/DynamicCV/blob/master/Core_Proje/wwwroot/projectImages/Blog3.PNG)
+![Web Site View](https://github.com/seymaesim/DynamicCV/blob/master/Core_Proje/wwwroot/projectImages/Admin%20Panel.PNG)
+![Web Site View](https://github.com/seymaesim/DynamicCV/blob/master/Core_Proje/wwwroot/projectImages/YetenekEklemeveGuncelleme.PNG)
+## 👋 Phone Print Screen
+![Web Site View](https://github.com/seymaesim/DynamicCV/blob/master/Core_Proje/wwwroot/projectImages/BlogPhone.PNG)
+
+
