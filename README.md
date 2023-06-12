@@ -1,5 +1,5 @@
 # Personal Resume Project
-<u> Sıfırdan Admin - Yazar ve Vitrin Paneli Bulunan Dinamik Bir Web Projesini Core Ortamında Geliştirme </u>
+<strong> Sıfırdan Admin - Yazar ve Vitrin Paneli Bulunan Dinamik Bir Web Projesini Core Ortamında Geliştirme </strong>
 
 <b><a href="http://www.seymayilmazer.com">seymayilmazer.com</a></b>
 
