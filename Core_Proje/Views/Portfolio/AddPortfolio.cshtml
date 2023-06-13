@@ -9,15 +9,19 @@
     <div class="row">
         <div class="col-md-6">
             @Html.Label("Proje Adı")
-            <div class="form-group">
+        @*    <div class="form-group">
                 <input type="text" class="form-control" placeholder="Örn; .Net" name="Name">
-            </div>
+            </div>*@
+            @Html.TextBoxFor(x => x.Name,new {@class="form-control",@placeholder="Örn; .Net",@type="text"})
+            @Html.ValidationMessageFor(x => x.Name)
         </div>
         <div class="col-md-6">
             @Html.Label("Proje Tag")
             <div class="form-group">
-                <input type="text" placeholder="Örn; HTML,Web,Mobile" class="form-control" name="Contents" />
+             @*   <input type="text" placeholder="Örn; HTML,Web,Mobile" class="form-control" name="Contents" />*@
+                @Html.TextBoxFor(x => x.Contents,new {@class="form-control",@placeholder="Örn; HTML,Web,Mobile",@type="text"})
             </div>
+            @Html.ValidationMessageFor(x => x.Contents)
         </div>
     </div>
     <div class="row">
@@ -26,6 +30,7 @@
                 @Html.Label("Proje Hakkında Detay Bilgi")
                 @Html.TextAreaFor(x => x.DetailInformation,10,3 ,new {@class="form-control"})
             </div>
+            @Html.ValidationMessageFor(x => x.DetailInformation)
         </div>
     </div>
 
@@ -34,7 +39,7 @@
             <div class="form-group">
                 <label for="formFile" class="form-label">Image Yükle</label>
                 <input class="form-control" type="file" id="formFile" name="ImageUrl">
-
+                @Html.ValidationMessageFor(x => x.ImageUrl)
             </div>
         </div>
     </div>

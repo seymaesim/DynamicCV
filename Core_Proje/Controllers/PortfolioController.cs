@@ -5,10 +5,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using System.Threading.Tasks;
-using System;
 using Microsoft.AspNetCore.Hosting;
 using BusinessLayer.ValidationRules;
-using FluentValidation;
 using FluentValidation.Results;
 
 namespace Core_Proje.Controllers
@@ -25,6 +23,11 @@ namespace Core_Proje.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.v1 = "Listeleme";
+            ViewBag.v2 = "Portföy";
+            ViewBag.v3 = "Portföy Listesi";
+            ViewBag.PortfolioAct = "active";
+
             var values = portfolioManager.T_GetList();
             return View(values);
         }
@@ -35,17 +38,16 @@ namespace Core_Proje.Controllers
             ViewBag.v1 = "Ekleme";
             ViewBag.v2 = "Portföy";
             ViewBag.v3 = "Portföy Ekleme";
-          
-
 
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> AddPortfolio(Portfolio portfolio, IFormFile ImageUrl)
         {
+            portfolio.ImageUrl = ImageUrl.FileName;
+
             PortfolioValidator validations = new PortfolioValidator();
             ValidationResult result = validations.Validate(portfolio);
-
             if (result.IsValid)
             {
                 if (ImageUrl != null && ImageUrl.Length > 0)

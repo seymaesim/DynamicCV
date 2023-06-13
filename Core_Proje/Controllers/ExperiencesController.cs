@@ -1,13 +1,8 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccesLayer.EntityFramework;
 using EntityLayer.Concrete;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.IO;
-using System.Threading.Tasks;
-using System;
 using BusinessLayer.ValidationRules;
-using Microsoft.Extensions.Options;
 using FluentValidation.Results;
 
 namespace Core_Proje.Controllers
@@ -20,6 +15,8 @@ namespace Core_Proje.Controllers
             ViewBag.v1 = "Listeleme";
             ViewBag.v2 = "Deneyim";
             ViewBag.v3 = "Deneyim Listesi";
+            ViewBag.DeneyimAct = "active";
+
             var experienceList = experienceManager.T_GetList();
             return View(experienceList);
          

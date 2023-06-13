@@ -12,12 +12,14 @@
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Örn; .Net" name="Name" value="@Model.Name">
             </div>
+            @Html.ValidationMessageFor(x => x.Name)
         </div>
         <div class="col-md-6">
             @Html.Label("Proje Tag")
             <div class="form-group">
                 <input type="text" placeholder="Örn; 70" class="form-control" name="Contents" value="@Model.Contents" />
             </div>
+            @Html.ValidationMessageFor(x => x.Contents)
         </div>
     </div>
 
@@ -27,6 +29,7 @@
                 <img src="@Model.ImageUrl" class="avatar avatar-xxl rounded-circle me-2" alt="invision">
                 <input type="text" placeholder="Örn; 70" class="form-control" name="ImageUrl" value="@Model.ImageUrl" hidden />
             </div>
+            @Html.ValidationMessageFor(x => x.ImageUrl)
         </div>
         <div class="col-md-10">
             <div class="form-group">
@@ -42,6 +45,7 @@
             <div class="form-group">
                 @Html.Label("Proje Hakkında Detay Bilgi")
                 @Html.TextAreaFor(x => x.DetailInformation,10,3 ,new {@class="form-control"})
+                @Html.ValidationMessageFor(x => x.DetailInformation)
             </div>
         </div>
     </div>

@@ -31,6 +31,7 @@ namespace Core_Proje.Controllers
             ViewBag.v1 = "Listeleme";
             ViewBag.v2 = "Yetenek";
             ViewBag.v3 = "Yetenek Listesi";
+            ViewBag.SkillAct = "active";
             var skillList = skillManager.T_GetList();
             return View(skillList);
         }

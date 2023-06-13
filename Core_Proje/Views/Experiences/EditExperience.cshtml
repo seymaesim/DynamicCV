@@ -11,6 +11,7 @@
     <br />
     @Html.Label("Şirket Adı")
     @Html.TextBoxFor(x => x.Name, new {@class="form-control"})
+    @Html.ValidationMessageFor(x => x.Name)
     <br />
     @Html.Label("Pozisyon")
     @Html.TextBoxFor(x => x.Mission, new {@class="form-control"})
