@@ -7,6 +7,9 @@ using System.IO;
 using System.Threading.Tasks;
 using System;
 using Microsoft.AspNetCore.Hosting;
+using BusinessLayer.ValidationRules;
+using FluentValidation;
+using FluentValidation.Results;
 
 namespace Core_Proje.Controllers
 {
@@ -32,27 +35,44 @@ namespace Core_Proje.Controllers
             ViewBag.v1 = "Ekleme";
             ViewBag.v2 = "Portföy";
             ViewBag.v3 = "Portföy Ekleme";
+          
+
 
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> AddPortfolio(Portfolio portfolio, IFormFile ImageUrl)
         {
-            if (ImageUrl != null && ImageUrl.Length > 0)
-            {
-                var fileName = ImageUrl.FileName;
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ultra_profile/images", fileName);
+            PortfolioValidator validations = new PortfolioValidator();
+            ValidationResult result = validations.Validate(portfolio);
 
-                using (var stream = new FileStream(filePath, FileMode.Create))
+            if (result.IsValid)
+            {
+                if (ImageUrl != null && ImageUrl.Length > 0)
                 {
-                    await ImageUrl.CopyToAsync(stream);
-                    portfolio.ImageUrl = "/ultra_profile/images/" + fileName.ToString();
+                    var fileName = ImageUrl.FileName;
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ultra_profile/images", fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await ImageUrl.CopyToAsync(stream);
+                        portfolio.ImageUrl = "/ultra_profile/images/" + fileName.ToString();
+                    }
+                }
+                // Resim başarıyla yüklendi, işleme devam edebilirsiniz.
+
+                portfolioManager.T_Add(portfolio);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
-            // Resim başarıyla yüklendi, işleme devam edebilirsiniz.
+            return View();
 
-            portfolioManager.T_Add(portfolio);
-            return RedirectToAction("Index");
         }
         public IActionResult DeletePortfolio(int ID)
         {
@@ -84,36 +104,53 @@ namespace Core_Proje.Controllers
         [HttpPost]
         public async Task<IActionResult> EditPortfolio(Portfolio portfolio, IFormFile ImageUrl)
         {
-            var fileName = portfolio.ImageUrl.Split("/ultra_profile/images/")[1];
-            var filePath = Path.Combine(_iweb.WebRootPath, "ultra_profile/images", fileName.ToString());
-            FileInfo fi = new FileInfo(filePath);
-            if (fi != null)
+            PortfolioValidator validations = new PortfolioValidator();
+            ValidationResult result = validations.Validate(portfolio);
+
+            if (result.IsValid)
             {
-                System.IO.File.Delete(filePath);
-                fi.Delete();
-            }
-            if (ImageUrl != null && ImageUrl.Length > 0)
-            {
-                if (ImageUrl.FileName == fileName)
+                var fileName = portfolio.ImageUrl.Split("/ultra_profile/images/")[1];
+                var filePath = Path.Combine(_iweb.WebRootPath, "ultra_profile/images", fileName.ToString());
+                FileInfo fi = new FileInfo(filePath);
+                if (fi != null)
                 {
-                    if (fi != null)
+                    System.IO.File.Delete(filePath);
+                    fi.Delete();
+                }
+                if (ImageUrl != null && ImageUrl.Length > 0)
+                {
+                    if (ImageUrl.FileName == fileName)
                     {
-                        System.IO.File.Delete(filePath);
-                        fi.Delete();
+                        if (fi != null)
+                        {
+                            System.IO.File.Delete(filePath);
+                            fi.Delete();
+                        }
+
                     }
+                    var fileName2 = ImageUrl.FileName.ToString().Split(Path.GetExtension(ImageUrl.FileName))[0] + Path.GetExtension(ImageUrl.FileName);
+                    var filePath2 = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ultra_profile/images", fileName2);
 
+                    using (var stream = new FileStream(filePath2, FileMode.Create))
+                    {
+                        await ImageUrl.CopyToAsync(stream);
+                        portfolio.ImageUrl = "/ultra_profile/images/" + fileName2.ToString();
+                    }
                 }
-                var fileName2 = ImageUrl.FileName.ToString().Split(Path.GetExtension(ImageUrl.FileName))[0] + Path.GetExtension(ImageUrl.FileName);
-                var filePath2 = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/ultra_profile/images", fileName2);
+                portfolioManager.T_Update(portfolio);
+                return RedirectToAction("Index");
 
-                using (var stream = new FileStream(filePath2, FileMode.Create))
+            }
+            else
+            {
+                foreach (var item in result.Errors)
                 {
-                    await ImageUrl.CopyToAsync(stream);
-                    portfolio.ImageUrl = "/ultra_profile/images/" + fileName2.ToString();
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
                 }
             }
-            portfolioManager.T_Update(portfolio);
-            return RedirectToAction("Index");
+            return View();
+
+
         }
     }
 }

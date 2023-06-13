@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using System.Threading.Tasks;
 using System;
+using BusinessLayer.ValidationRules;
+using Microsoft.Extensions.Options;
+using FluentValidation.Results;
 
 namespace Core_Proje.Controllers
 {
@@ -33,8 +36,24 @@ namespace Core_Proje.Controllers
         [HttpPost]
         public IActionResult AddExperience(Experience experience)
         {
-            experienceManager.T_Add(experience);
-            return RedirectToAction("Index");
+            ExperiencesValidator validations = new ExperiencesValidator();
+            ValidationResult result = validations.Validate((experience));
+
+            if (result.IsValid)
+            {
+                experienceManager.T_Add(experience);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
+
+       
         }
         public IActionResult DeleteExperience(int ID)
         {
@@ -55,8 +74,23 @@ namespace Core_Proje.Controllers
         [HttpPost]
         public IActionResult EditExperience(Experience experience)
         {
-            experienceManager.T_Update(experience);
-            return RedirectToAction("Index");
+            ExperiencesValidator validations = new ExperiencesValidator();
+            ValidationResult result = validations.Validate((experience));
+
+            if (result.IsValid)
+            {
+                experienceManager.T_Update(experience);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
+       
         }
     }
 }
