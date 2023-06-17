@@ -18,5 +18,6 @@ namespace EntityLayer.Concrete
         public string Phone { get; set; }
         public string Adress { get; set; }
         public string ImageUrl { get; set; }
+        public bool Status { get; set; }
     }
 }

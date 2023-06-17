@@ -1,0 +1,84 @@
+﻿@using EntityLayer.Concrete;
+@model List<Portfolio>
+
+<style>
+    div.transbox {
+        margin: 30px;
+        background-color: darkgrey;
+        border: 1px solid black;
+        opacity: 0.8;
+    }
+
+        div.transbox p {
+            margin: 5%;
+            font-weight: bold;
+            color: #000000;
+        }
+</style>
+
+
+<div class="card card-carousel overflow-hidden h-100 p-0">
+    <div id="carouselExampleCaptions" class="carousel slide h-100" data-bs-ride="carousel">
+        <div class="carousel-inner border-radius-lg h-100">
+    @foreach (var item in Model.OrderByDescending(x => x.PortfolioID))
+    {
+     
+     
+             @if (item.PortfolioID == 11)
+                {
+                    <div class="carousel-item h-100 active" style="background-image: url('@item.ImageUrl');
+                       background-size: cover; opacity: 0.7;background-repeat: no-repeat;">
+                        <div class=" transbox carousel-caption d-none d-md-block  ms-5">
+                            <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
+                                <i class="ni ni-trophy text-dark opacity-10"></i>
+                            </div>
+                            <h5 class="text-white mb-1" style="color:black !important">@item.Name</h5>
+                            <p style="color:black !important">@item.Contents</p>
+                        </div>
+                    </div>
+
+                }
+                @if (item.PortfolioID == 2)
+                {
+                    <div class="carousel-item h-100 " style="background-image: url('@item.ImageUrl');
+                       background-size: cover; opacity: 0.7;background-repeat: no-repeat;">
+                        <div class=" transbox carousel-caption d-none d-md-block  ms-5">
+                            <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
+                                <i class="ni ni-trophy text-dark opacity-10"></i>
+                            </div>
+                            <h5 class="text-white mb-1" style="color:black !important">@item.Name</h5>
+                            <p style="color:black !important">@item.Contents</p>
+                        </div>
+                    </div>
+
+                }
+                @if (item.PortfolioID == 7)
+                {
+                    <div class="carousel-item h-100 " style="background-image: url('@item.ImageUrl');
+                       background-size: cover; opacity: 0.7;background-repeat: no-repeat;">
+                        <div class=" transbox carousel-caption d-none d-md-block  ms-5">
+                            <div class="icon icon-shape icon-sm bg-white text-center border-radius-md mb-3">
+                                <i class="ni ni-trophy text-dark opacity-10"></i>
+                            </div>
+                            <h5 class="text-white mb-1" style="color:black !important">@item.Name</h5>
+                            <p style="color:black !important">@item.Contents</p>
+                        </div>
+                    </div>
+
+                }
+
+    
+   
+    }
+        </div>
+        <button class="carousel-control-prev w-5 me-3" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev" style="background-color:dimgrey !important">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next w-5 me-3" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next" style="background-color:dimgrey !important">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+

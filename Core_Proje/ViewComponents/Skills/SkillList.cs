@@ -12,6 +12,7 @@ namespace Core_Proje.ViewComponents.SkillList
             var varlues = skillManager.T_GetList();
             return View(varlues);
         }
+
     }
    
 }

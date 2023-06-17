@@ -1,8 +1,105 @@
-﻿
+﻿@using EntityLayer.Concrete;
+@model List<Feature>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Merhaba</h1>
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+
+                <a href="/Feature/AddFeature/" class="btn btn-success" aria-haspopup="true" aria-expanded="false" style="float:right">
+                    Yeni Kayıt &nbsp <i class="fa fa-refresh"></i>
+                </a>
+
+
+
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table align-items-center justify-content-center mb-0" style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Id</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Başlık</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Ad</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Özet Bilgi</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Durum</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Sil</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Güncelle</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex px-3">
+                                            <div class="my-auto">
+                                                <h6 class="mb-0 text-sm">@item.FeatureID</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center">
+                                        <div class="d-flex px-5 align-items-center " style="margin-left:-50px">
+                                            <div>
+                                                <h6 class="mb-0 text-sm">@item.Header</h6> 
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-left">
+                                        <div class="d-flex px-5 align-items-center " style="margin-left:-50px">
+                                            <div>
+                                                <h6 class="mb-0 text-sm">@item.Name</h6> 
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-left">
+                                        <div class="d-flex px-5 align-items-center " style="margin-left:-50px">
+                                            <div>
+                                                <h6 class="mb-0 text-sm">@item.Tiitle</h6>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-left">
+                                        <div class="d-flex px-5 align-items-center " style="margin-left:-50px">
+                                            <div>
+                                                @if (item.Status == false)
+                                                {
+                                                    <h6 class="mb-0 text-sm" style="color:darkred">Pasif</h6>
+                                                }
+                                                else
+                                                {
+                                                    <h6 class="mb-0 text-sm" style="color:darkgreen">Aktif</h6>
+                                                }
+                                             
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="align-middle text-center">
+
+                                        <a href="/Feature/DeleteFeature/@item.FeatureID" class="btn btn-danger " aria-haspopup="true" aria-expanded="false">
+                                            Sil &nbsp <i class="fa fa-remove"></i>
+                                        </a>
+                                    </td>
+                                    <td class="align-middle text-center">
+
+                                        <a href="/Feature/EditFeature/@item.FeatureID" class="btn btn-primary " aria-haspopup="true" aria-expanded="false">
+                                            Güncelle &nbsp <i class="fa fa-refresh"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
